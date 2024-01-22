@@ -23,7 +23,7 @@ public class StoryManager : MonoBehaviour
     [SerializeField] AudioClip[] audioParts;
 
     [Header("Audio Clip Sound Adjustment")]
-    [SerializeField] [Range(0, 1)] float storyVolume;
+    [SerializeField][Range(0, 1)] float storyVolume;
 
     [Header("Question time before continue")]
     [SerializeField] float delayTime = 5f;
@@ -56,6 +56,7 @@ public class StoryManager : MonoBehaviour
     {
         // sau 5s sẽ toggle isComplete cho phép ng chơi next hoặc backward
         StartCoroutine(ToggleIsComplete());
+
     }
 
     void Update()
@@ -75,6 +76,7 @@ public class StoryManager : MonoBehaviour
             // ẩn hình với truyện hiện tại đi
             HideCurrentImagePart();
             HideCurrentStoryPart();
+            HideCurrentHiddenButtons();
             MuteAllAudioParts();
 
 
@@ -96,7 +98,7 @@ public class StoryManager : MonoBehaviour
 
     public void PreviousPart()
     {
-        if(currentIndex > 0 && currentIndex <= storyParts.Length - 1 && isComplete)
+        if (currentIndex > 0 && currentIndex <= storyParts.Length - 1 && isComplete)
         {
             // reset lại biến isComplete
             isComplete = false;
@@ -104,6 +106,7 @@ public class StoryManager : MonoBehaviour
             // ẩn hình với truyện hiện tại đi
             HideCurrentImagePart();
             HideCurrentStoryPart();
+            HideCurrentHiddenButtons();
             MuteAllAudioParts();
 
             // giảm index đi để lùi trang truyện và trang tranh về trang trước 
@@ -121,9 +124,10 @@ public class StoryManager : MonoBehaviour
 
     void LoadParts()
     {
-        // load ra hình với ảnh của index phù hợp
+        // load ra hình với ảnh và câu hỏi ẩn của index phù hợp
         storyParts[currentIndex].SetActive(true);
         imageParts[currentIndex].SetActive(true);
+        hiddenButtonsParts[currentIndex].SetActive(true);
 
         // load ra âm thanh của index phù hợp sau chừng delayTimeSmall
         Invoke("PlayCurrentAudioParts", delayTimeSmall);
@@ -154,7 +158,10 @@ public class StoryManager : MonoBehaviour
         storyParts[currentIndex].SetActive(true);
 
         // hiện image parts đầu tiên 
-        imageParts[currentIndex].SetActive(true);
+        PlayCurrentImagePart();
+
+        // bật hidden buttons section đầu tiên
+        
 
         // chạy âm thanh của trang truyện đầu tiên sau chừng delayTimeSmall
         Invoke("PlayCurrentAudioParts", delayTimeSmall);
@@ -164,10 +171,15 @@ public class StoryManager : MonoBehaviour
 
     void HideAllHiddenButtons()
     {
-        foreach(GameObject part in hiddenButtonsParts)
+        foreach (GameObject part in hiddenButtonsParts)
         {
             part.SetActive(false);
         }
+    }
+
+    void HideCurrentHiddenButtons()
+    {
+        hiddenButtonsParts[currentIndex].SetActive(false);
     }
 
     void MuteAllAudioParts()
@@ -179,10 +191,15 @@ public class StoryManager : MonoBehaviour
     {
         if (!storyAudioSource.isPlaying)
         {
-        storyAudioSource.PlayOneShot( audioParts[currentIndex], storyVolume);
+            storyAudioSource.PlayOneShot(audioParts[currentIndex], storyVolume);
 
         }
         else { return; }
+    }
+
+    void PlayCurrentStoryPart()
+    {
+        storyParts[currentIndex].SetActive(true);
     }
 
     void HideCurrentStoryPart()
@@ -201,6 +218,12 @@ public class StoryManager : MonoBehaviour
             part.SetActive(false);
         }
     }
+
+    void PlayCurrentImagePart()
+    {
+        imageParts[currentIndex].SetActive(true);
+    }
+
     void HideCurrentImagePart()
     {
         imageParts[currentIndex].SetActive(false);
