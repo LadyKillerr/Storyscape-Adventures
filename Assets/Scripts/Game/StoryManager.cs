@@ -155,18 +155,23 @@ public class StoryManager : MonoBehaviour
         currentIndex = 0;
 
         // hiện story Parts đầu tiên
-        storyParts[currentIndex].SetActive(true);
+        PlayCurrentStoryPart();
 
         // hiện image parts đầu tiên 
         PlayCurrentImagePart();
 
         // bật hidden buttons section đầu tiên
-        
+        PlayCurrentHiddenButtons();
 
         // chạy âm thanh của trang truyện đầu tiên sau chừng delayTimeSmall
         Invoke("PlayCurrentAudioParts", delayTimeSmall);
 
 
+    }
+
+    void PlayCurrentHiddenButtons()
+    {
+        hiddenButtonsParts[currentIndex].SetActive(true);
     }
 
     void HideAllHiddenButtons()

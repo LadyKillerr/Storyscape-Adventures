@@ -6,17 +6,23 @@ public class AudioManager : MonoBehaviour
 {
 
     [Header("Vocabulary")]
-    [SerializeField] AudioClip bunnyWord;
-    [SerializeField][Range(0, 1)] float bunnyWordVolume = 1f;
+    [SerializeField] AudioClip catWord;
+    [SerializeField][Range(0, 1)] float catWordVolume = 1f;
 
-    [SerializeField] AudioClip dolphinWord;
-    [SerializeField][Range(0, 1)] float dolphinWordVolume = 1f;
+    [SerializeField] AudioClip batWord;
+    [SerializeField][Range(0, 1)] float batWordVolume = 1f;
 
-    [SerializeField] AudioClip shipWord;
-    [SerializeField][Range(0, 1)] float shipWordVolume = 1f;
+    [SerializeField] AudioClip hatWord;
+    [SerializeField][Range(0, 1)] float hatWordVolume = 1f;
 
-    [SerializeField] AudioClip seaWord;
-    [SerializeField][Range(0, 1)] float seaWordVolume = 1f;
+    [SerializeField] AudioClip appleWord;
+    [SerializeField][Range(0, 1)] float appleWordVolume = 1f;
+
+    [SerializeField] AudioClip cakeWord;
+    [SerializeField][Range(0, 1)] float cakeWordVolume = 1f;
+
+    [SerializeField] AudioClip treeWord;
+    [SerializeField][Range(0, 1)] float treeWordVolume = 1f;
 
     AudioSource gameAudio;
 
@@ -41,23 +47,33 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayBunnyClip()
+    public void PlayCatClip()
     {
-        PlayAudio(bunnyWord, bunnyWordVolume);
+        PlayAudio(catWord, catWordVolume);
     }
 
-    public void PlayDolphinClip()
+    public void PlayBatClip()
     {
-        PlayAudio(dolphinWord, dolphinWordVolume);
+        PlayAudio(batWord, batWordVolume);
     }
 
-    public void PlayShipClip()
+    public void PlayHatClip()
     {
-        PlayAudio(shipWord, shipWordVolume);
+        PlayAudio(hatWord, hatWordVolume);
     }
 
-    public void PlaySeaClip()
+    public void PlayAppleWord()
     {
-        PlayAudio(seaWord, seaWordVolume);
+        PlayAudio(appleWord, appleWordVolume);
+    }
+
+    public void PlayCakeWord()
+    {
+        PlayAudio(cakeWord, cakeWordVolume);
+    }
+
+    public void PlayTreeWord()
+    {
+        PlayAudio(treeWord, treeWordVolume);
     }
 }

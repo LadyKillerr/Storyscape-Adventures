@@ -1,0 +1,66 @@
+[
+{
+  "id": "a_cat_and_a_bat",
+  "story": "A Cat and a bat",
+  "sentences": [
+    "A cat and a bat.",
+    "A phonics story is told by Sunny Friends.",
+    "A playful cat wears a big hat.",
+    "He wants to eat apple cake.",
+    "The hat is too large, so he cannot climb the tree.",
+    "A bat appears and says,'I will help.'",
+    "The bat grabs the apple.",
+    "The cat makes an apple cake.",
+    "The bat and the cat share the apple cake happily."
+  ],
+  "noun": [
+    "cat",
+    "bat",
+    "hat",
+    "apple",
+    "cake",
+    "tree"
+  ],
+  "question": [
+    {
+      "q": "What does the cat wear?",
+      "a": [
+        "A bat",
+        "A hat",
+        "An apple",
+        "A cake"
+      ],
+      "c": 1
+    },
+    {
+      "q": "Why can the cat not climb the tree?",
+      "a": [
+        "The cat is hungry",
+        "The bat doesn't help",
+        "The hat is too large",
+        "The tree is very tall"
+      ],
+      "c": 2
+    },
+    {
+      "q": "What does the bat help the cat?",
+      "a": [
+        "The bat picks the apple",
+        "The bat eats the apple cake",
+        "The bat helps the cat to climb",
+        "The bat flies with the cat"
+      ],
+      "c": 0
+    },
+    {
+      "q": "What do the can and the cat share together?",
+      "a": [
+        "An apple",
+        "An apple cake",
+        "A hat",
+        "An apple tree"
+      ],
+      "c": 1
+    }
+  ]
+}
