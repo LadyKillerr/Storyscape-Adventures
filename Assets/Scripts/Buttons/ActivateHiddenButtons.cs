@@ -33,10 +33,12 @@ public class ActivateHiddenButtons : MonoBehaviour
     {
         if (!isShowing)
         {
-            ActivateHiddenButton();
+            wordsLabel.SetActive(true);
+
+            isShowing = true;
 
             // sau 5s thì tắt nó đi lại
-            Invoke("HideHiddenButtons", showingTime);
+            Invoke("DeactivateHiddenButton", showingTime);
 
             playAudioClip(hiddenWordAudio, hiddenWordVolume);
         }
@@ -51,23 +53,13 @@ public class ActivateHiddenButtons : MonoBehaviour
         hiddenWordAudioSource.PlayOneShot(wordAudio, wordVolume);
     }
 
-    void HideHiddenButtons()
-    {
-        wordsLabel.SetActive(false);
-    }
 
     void DeactivateHiddenButton()
     {
         wordsLabel.SetActive(false);
+        
         isShowing = false;
 
-
-
     }
 
-    void ActivateHiddenButton()
-    {
-        wordsLabel.SetActive(true);
-        isShowing = true;
-    }
 }
