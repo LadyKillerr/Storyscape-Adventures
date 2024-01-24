@@ -8,6 +8,10 @@ using UnityEngine;
 public class StoryManager : MonoBehaviour
 {
     [Header("Materials Arrays")]
+
+    // độ dài của mảng 
+    [SerializeField] int arraysLength;
+
     // index của story parts hiện tại
     [SerializeField] int currentIndex = 0;
 
@@ -56,6 +60,7 @@ public class StoryManager : MonoBehaviour
 
     void Awake()
     {
+        arraysLength = storyParts.Length;
 
         storyAudioSource = GetComponent<AudioSource>();
 
