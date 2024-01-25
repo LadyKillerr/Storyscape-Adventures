@@ -5,9 +5,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelNumberUI : MonoBehaviour
+public class StoryPartsUI : MonoBehaviour
 {
-    [SerializeField] Canvas gameCanvas;
+    [SerializeField] Canvas quizSection;
 
     StoryManager storyManager;
 
@@ -22,7 +22,7 @@ public class LevelNumberUI : MonoBehaviour
         storyProgressUI = GetComponent<TextMeshProUGUI>();
 
         // Get ra mananger để lấy currentIndex
-        storyManager = gameCanvas.GetComponent<StoryManager>();
+        storyManager = quizSection.GetComponent<StoryManager>();
     }
 
     // Start is called before the first frame update

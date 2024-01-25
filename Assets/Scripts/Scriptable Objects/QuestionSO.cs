@@ -26,4 +26,5 @@ public class QuestionSO : ScriptableObject
     {
         return answers[index];
     }
+
 }
