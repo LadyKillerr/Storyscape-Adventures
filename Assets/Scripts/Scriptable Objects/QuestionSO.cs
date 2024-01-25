@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,6 +21,7 @@ public class QuestionSO : ScriptableObject
         return correctAnswersIndex;
     }
 
+    // get ra câu hỏi được chỉ định dựa trên index 
     public string GetAnswer(int index)
     {
         return answers[index];
